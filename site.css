@@ -226,6 +226,7 @@ textarea.field{ min-height: 5.5rem; resize: vertical; }
 
 /* Notes de travail pour Mickaël, présentes sur la maquette seulement */
 .memo-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 3rem clamp(2rem, 6vw, 6rem); align-items: start; }
+.memo-grid + .memo-grid{ margin-top: 3.5rem; }
 .memo h3{ margin-bottom: 1rem; }
 .memo h3:not(:first-child){ margin-top: 2.5rem; }
 .asks, .changes{ margin: 0; padding: 0; list-style: none; display: grid; gap: 1rem; }
