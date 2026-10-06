@@ -111,7 +111,6 @@ a.btn:hover::after{ transform: translateX(0.3rem); }
 .where{ display: block; font-family: var(--body); font-stretch: normal; font-weight: 600; font-size: 1.1875rem; line-height: 1.4; margin-bottom: 1.25rem; color: var(--accent); }
 .hero .lead{ margin: 1.75rem 0; max-width: 38rem; }
 .hero-actions{ display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; }
-.hero-actions span{ color: var(--muted); }
 /* Le portrait occupe toute la hauteur de la bande, sans cadre ; sa largeur reste sous celle du fichier pour qu'il soit net */
 .hero-photo{ grid-area: photo; margin: 0; position: relative; overflow: hidden; }
 .hero-photo img{ position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
