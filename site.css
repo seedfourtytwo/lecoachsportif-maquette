@@ -115,7 +115,7 @@ a.btn:hover::after{ transform: translateX(0.3rem); }
 .where{ display: block; font-family: var(--body); font-stretch: normal; font-weight: 600; font-size: 1.1875rem; line-height: 1.4; margin-bottom: 1.25rem; color: var(--accent); }
 .hero .lead{ margin: 1.75rem 0; max-width: 38rem; }
 .hero-actions{ display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; }
-.about{ margin-top: 1.5rem; max-width: 38rem; }
+.about{ margin: -0.5rem 0 1.75rem; max-width: 38rem; }
 .about p{ margin: 1rem 0 0; }
 /* Le portrait occupe toute la hauteur de la bande, sans cadre ; sa largeur reste sous celle du fichier pour qu'il soit net */
 .hero-photo{ grid-area: photo; margin: 0; position: relative; overflow: hidden; }
@@ -148,6 +148,11 @@ a.btn:hover::after{ transform: translateX(0.3rem); }
 .ticks li{ display: flex; gap: 0.75rem; align-items: start; }
 .ticks .ico{ margin-top: 0.15rem; }
 .offer .btn{ margin-top: 1.5rem; justify-self: start; }
+/* Ce qui est commun aux deux formules, dit une seule fois sous les panneaux */
+.both{ margin-top: 1.5rem; background: var(--panel); border-radius: var(--r); padding: 1.5rem clamp(1.5rem, 3vw, 2.5rem); display: grid; grid-template-columns: auto 1fr; gap: 1rem clamp(2rem, 4vw, 4rem); align-items: center; }
+.both h3{ margin: 0; }
+.both ul{ margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 0.6rem 2.5rem; }
+.both li{ display: flex; gap: 0.75rem; align-items: start; }
 
 /* Détail d'une formule et réponses aux questions : le contenu se déplie sur place */
 .more summary{ list-style: none; cursor: pointer; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.2em; }
@@ -183,7 +188,8 @@ a.btn:hover::after{ transform: translateX(0.3rem); }
 #reserver{ position: relative; }
 .peek{ position: absolute; bottom: 100%; right: max(1.25rem, calc(50% - 36.75rem)); width: 6.5rem; height: 4.1rem; overflow: hidden; }
 .peek img{ width: 100%; }
-.slots p{ max-width: 22rem; margin: 0 auto; }
+.slots-ask{ display: grid; gap: 1.25rem; justify-items: center; }
+.slots p{ max-width: 26rem; margin: 0 auto; font-size: 1rem; }
 .callback{ display: grid; gap: 1rem; }
 .callback label, .ebook label{ display: grid; gap: 0.3rem; font-weight: 500; }
 .field{ font: inherit; color: #0F1A33; background: #fff; border: 0; border-radius: var(--r); padding: 0.8rem 1rem; width: 100%; }
@@ -216,6 +222,16 @@ textarea.field{ min-height: 5.5rem; resize: vertical; }
 .ebook .field{ background: var(--tint); color: var(--ink); }
 .ebook .btn{ justify-self: start; }
 
+/* Notes de travail pour Mickaël, présentes sur la maquette seulement */
+.memo-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 3rem clamp(2rem, 6vw, 6rem); align-items: start; }
+.memo h3{ margin-bottom: 1rem; }
+.memo h3:not(:first-child){ margin-top: 2.5rem; }
+.asks, .changes{ margin: 0; padding: 0; list-style: none; display: grid; gap: 1rem; }
+.asks{ counter-reset: ask; }
+.asks li{ counter-increment: ask; background: var(--panel); border-radius: var(--r); padding: 1.5rem; }
+.asks strong, .changes strong{ display: block; }
+.asks strong::before{ content: counter(ask) ". "; color: var(--accent); }
+
 /* Pied de page */
 .foot{ padding-block: 4rem 6rem; font-size: 1rem; }
 .foot .wrap{ display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 2rem 3rem; }
@@ -247,7 +263,7 @@ textarea.field{ min-height: 5.5rem; resize: vertical; }
   .hero-head{ padding-top: 2rem; }
   .hero-photo{ margin: 1.75rem -1.25rem; height: min(75vw, 24rem); }
   .hero .lead{ margin-top: 0; }
-  .voices, .start, .booking, .faq, .free, .ebook, .free-first{ grid-template-columns: 1fr; }
+  .voices, .start, .booking, .faq, .free, .ebook, .free-first, .memo-grid, .both{ grid-template-columns: 1fr; }
   .offers{ grid-template-columns: 1fr; grid-template-rows: none; gap: 1.5rem; }
   .offer{ grid-template-rows: none; grid-row: auto; }
   .steps{ grid-template-columns: 1fr; }
@@ -272,14 +288,15 @@ textarea.field{ min-height: 5.5rem; resize: vertical; }
   @keyframes rise{ from{ opacity: 0; transform: translateY(2rem); } }
   @keyframes peek{ from{ transform: translateY(100%); } }
   @keyframes settle{ from{ opacity: 0; transform: scale(1.06); } }
-  .hero .where, .hero .line, .hero .lead, .hero-actions{ animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  .hero .where, .hero .line, .hero .lead, .about, .hero-actions{ animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
   .hero .line:nth-of-type(2){ animation-delay: 0.08s; }
   .hero .line:nth-of-type(3){ animation-delay: 0.16s; }
   .hero .lead{ animation-delay: 0.28s; }
-  .hero-actions{ animation-delay: 0.38s; }
+  .about{ animation-delay: 0.34s; }
+  .hero-actions{ animation-delay: 0.42s; }
   .hero-photo img{ animation: settle 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
   @supports (animation-timeline: view()){
-    .voice, .band h2, .intro .lead, .free-first, .offer, .steps li, .start figure, .booking > *, .faq-list, .free a, .ebook{
+    .voice, .band h2, .intro .lead, .free-first, .offer, .both, .steps li, .start figure, .booking > *, .faq-list, .free a, .ebook{
       animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 45%;
     }
     .peek img{ animation: peek linear both; animation-timeline: view(); animation-range: entry 20% cover 35%; }

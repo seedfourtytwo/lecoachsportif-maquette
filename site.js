@@ -55,11 +55,12 @@
   dockWatch.observe(document.getElementById('heroBook'));
   dockWatch.observe(document.getElementById('reserver'));
 
-  /* L'agenda Calendly se charge dans la page, à l'approche de la section de réservation.
-     Le message d'attente reste affiché jusqu'à la première réponse de Calendly, puis le cadre suit la hauteur annoncée. */
-  var slotWatch = new IntersectionObserver(function(entries){
-    if (!entries[0].isIntersecting) return;
-    slotWatch.disconnect();
+  /* L'agenda Calendly ne se charge qu'au clic : aucun échange avec Calendly avant que le visiteur le demande.
+     Le bouton reste affiché jusqu'à la première réponse de Calendly, puis le cadre suit la hauteur annoncée. */
+  var slotsLoad = document.getElementById('slotsLoad');
+  slotsLoad.addEventListener('click', function(){
+    slotsLoad.disabled = true;
+    slotsLoad.textContent = "L'agenda se charge";
     var frame = document.createElement('iframe');
     frame.title = 'Choisir un créneau pour le bilan offert';
     frame.src = 'https://calendly.com/personaltrainermycoachmickael/bilan-forme-offert'
@@ -70,7 +71,7 @@
       if (e.origin !== 'https://calendly.com' || e.source !== frame.contentWindow || !e.data) return;
       if (!slots.classList.contains('loaded')) {
         slots.classList.add('loaded');
-        slots.querySelector('p').remove();
+        slots.querySelector('.slots-ask').remove();
       }
       var height = e.data.event === 'calendly.page_height' && e.data.payload && parseInt(e.data.payload.height, 10);
       if (height) frame.style.height = height + 'px';
@@ -78,8 +79,7 @@
         slots.scrollIntoView({ block: 'start' });
       }
     });
-  }, { rootMargin: '600px' });
-  slotWatch.observe(slots);
+  });
 
   /* Les deux « En savoir plus » s'ouvrent et se ferment ensemble, pour comparer les formules ligne à ligne. */
   var details = document.querySelectorAll('.offer .more');
