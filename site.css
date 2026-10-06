@@ -94,17 +94,16 @@ h3{ font-size: 1.5rem; font-stretch: 80%; font-weight: 700; line-height: 1.15; m
 .hero-actions a:not(.btn){ font-weight: 600; }
 .proof{ margin: 2rem 0 0; font-weight: 500; }
 .hero-photo{ grid-area: photo; margin: 0; align-self: center; }
-.hero-photo img{ width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 22%; border-radius: var(--r-md); }
-.hero-quote{ margin: 0.75rem 0 0; background: var(--paper); border-radius: var(--r-md); padding: 1.15rem 1.35rem; }
-.hero-quote p{ font-size: 1.1875rem; line-height: 1.4; font-weight: 500; margin: 0 0 0.4rem; }
-.hero-quote footer{ font-size: 1rem; color: var(--muted); }
+.hero-photo img{ width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 22%; border-radius: var(--r-md); }
 
-/* Avis : une situation de départ, la phrase d'un client, le lien pour vérifier */
-.voices{ display: grid; grid-template-columns: 1fr 1fr; gap: 3rem 4.5rem; margin-top: 2.75rem; }
+/* Avis : une phrase en grand, trois courtes, chacune liée à sa page Google */
 .voice{ margin: 0; }
-.voice h3{ color: var(--accent); }
-.voice blockquote{ margin: 0.5rem 0 0.75rem; font-size: 1.4375rem; line-height: 1.4; font-weight: 500; }
+.voice blockquote{ margin: 0 0 0.6rem; font-size: 1.3125rem; line-height: 1.4; font-weight: 500; }
 .voice figcaption{ color: var(--muted); font-size: 1rem; }
+.rating{ font-family: var(--body); font-stretch: normal; font-weight: 600; font-size: 1.3125rem; line-height: 1.4; margin: 0; }
+.voice.featured{ margin: 1.25rem 0 3.5rem; max-width: 56rem; }
+.voice.featured blockquote{ font-family: var(--display); font-stretch: 80%; font-weight: 700; font-size: clamp(1.9rem, 4.2vw, 3.25rem); line-height: 1.12; margin-bottom: 1rem; text-wrap: balance; }
+.voices{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem 3.5rem; }
 
 /* Tarifs */
 .free-first{ background: var(--blue); color: #fff; border-radius: var(--r-md); padding: 2rem; display: grid; grid-template-columns: 1fr auto; gap: 1rem 2.5rem; align-items: center; margin-top: 2.25rem; }
@@ -158,7 +157,7 @@ textarea.field{ min-height: 5.5rem; resize: vertical; }
 .callback .btn{ justify-self: start; }
 
 /* Questions */
-.faq details{ max-width: 52rem; }
+.faq{ display: grid; grid-template-columns: 0.8fr 1.6fr; gap: 1rem clamp(2rem, 6vw, 6rem); align-items: start; }
 .faq summary{ list-style: none; cursor: pointer; padding: 0.85rem 0; font-weight: 600; font-size: 1.3125rem; line-height: 1.35; display: flex; justify-content: space-between; gap: 1.5rem; }
 .faq details p{ margin: 0; padding: 0 3rem 1.25rem 0; }
 
@@ -199,7 +198,7 @@ textarea.field{ min-height: 5.5rem; resize: vertical; }
   .hero{ grid-template-columns: 1fr; grid-template-areas: "head" "photo" "body"; grid-template-rows: auto; row-gap: 1.25rem; }
   .hero-photo img{ aspect-ratio: 4 / 3; }
   .hero .lead{ margin-top: 0; }
-  .about, .booking, .ebook, .offers, .free, .free-first{ grid-template-columns: 1fr; }
+  .about, .booking, .ebook, .offers, .free, .free-first, .faq, .voices{ grid-template-columns: 1fr; }
   .about img{ aspect-ratio: 4 / 3; }
   .free-first .btn{ justify-self: start; }
   .faq details p{ padding-right: 0; }
@@ -210,7 +209,6 @@ textarea.field{ min-height: 5.5rem; resize: vertical; }
   .dock .btn{ width: 100%; box-shadow: 0 0.4rem 1.6rem rgba(0, 0, 0, 0.3); }
 }
 @media (max-width: 36rem){
-  .voices{ grid-template-columns: 1fr; gap: 2.25rem; }
   .hero, .booking{ border-radius: var(--r-md); }
   .rate strong{ font-size: 3rem; }
 }
