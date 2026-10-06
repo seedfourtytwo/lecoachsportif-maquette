@@ -5,12 +5,12 @@
 :root{
   color-scheme: light dark;
   interpolate-size: allow-keywords;
-  --blue: #1147B4;
-  --red: #EA183D;
-  --star: #F2A900;
+  --blue: light-dark(#1147B4, #103C99);
+  --red: #E0143A;
+  --star: light-dark(#A87200, #F2A900);
   --navy: #0B1226;
-  --paper: light-dark(#FFFFFF, #0A1024);
-  --tint: light-dark(#EEF2FC, #141D3A);
+  --paper: light-dark(#FBFAF7, #0A1024);
+  --tint: light-dark(#DFE6F5, #1A2647);
   --ink: light-dark(#0F1A33, #EEF1F8);
   --muted: light-dark(#465068, #B4BDD3);
   --accent: light-dark(#1147B4, #8FB0FF);
@@ -29,13 +29,13 @@ html{ -webkit-text-size-adjust: 100%; scroll-padding-top: 4.5rem; }
 body{ margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 1.125rem; line-height: 1.6; }
 img{ display: block; max-width: 100%; height: auto; }
 a{ color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 2px; }
-:focus-visible{ outline: 3px solid var(--red); outline-offset: 3px; }
+:focus-visible{ outline: 3px solid var(--accent); outline-offset: 3px; }
 p{ margin: 0 0 1rem; text-wrap: pretty; }
 
 /* Bandes : chacune fixe ses propres couleurs, les composants à l'intérieur s'y adaptent */
 .band{ padding-block: var(--band); background: var(--paper); color: var(--ink); --panel: var(--tint); }
 .band--tint{ background: var(--tint); --panel: var(--paper); }
-.band--dark{ background: var(--navy); --ink: #FFFFFF; --muted: #B4BDD3; --accent: #8FB0FF; --panel: #141D3A; }
+.band--dark{ background: var(--navy); --ink: #FFFFFF; --muted: #B4BDD3; --accent: #8FB0FF; --star: #F2A900; --panel: #141D3A; }
 .band--blue{ background: var(--blue); --ink: #FFFFFF; --muted: #DCE6FF; --accent: #FFFFFF; }
 .wrap{ max-width: 76rem; margin-inline: auto; padding-inline: 1.25rem; }
 .intro{ max-width: 40rem; margin-bottom: 3rem; }
@@ -50,7 +50,7 @@ h3{ font-size: 1.5rem; font-stretch: 80%; font-weight: 700; line-height: 1.15; m
 .sprite{ position: absolute; width: 0; height: 0; }
 .ico{ width: 1.5rem; height: 1.5rem; flex: none; fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-/* Bouton de réservation : le seul rouge de la page */
+/* Rouge : réservé au bouton qui mène au bilan offert. Les autres actions sont en .plain, ou en .quiet sur fond bleu. */
 .btn{
   display: inline-flex; align-items: center; justify-content: center; min-height: 3.25rem; text-align: center;
   background: var(--red); color: #fff; text-decoration: none; cursor: pointer; border: 0; border-radius: var(--r);
@@ -63,6 +63,7 @@ a.btn::after{ content: "→"; display: inline-block; margin-left: 0.6rem; transi
 a.btn:hover::after{ transform: translateX(0.3rem); }
 .btn.small{ min-height: 2.6rem; font-size: 1rem; padding: 0.4rem 1.2rem; }
 .btn.quiet{ background: #fff; color: #0F1A33; }
+.btn.plain{ background: var(--ink); color: var(--paper); }
 
 /* Menu */
 .draft{ margin: 0; padding: 0.5rem 1.25rem; text-align: center; font-size: 0.9375rem; background: var(--tint); color: var(--muted); }
@@ -74,7 +75,7 @@ a.btn:hover::after{ transform: translateX(0.3rem); }
 }
 .nav-bar{ display: flex; align-items: center; gap: 0.25rem; max-width: 76rem; margin: 0 auto; padding: 0.5rem 1.25rem; }
 .brand{ font-family: var(--display); font-stretch: 72%; font-weight: 800; font-size: 1.35rem; text-decoration: none; margin-right: auto; white-space: nowrap; }
-.brand span{ color: var(--red); }
+.brand span{ color: var(--accent); }
 .nav-links{ display: flex; gap: 0.15rem; }
 .nav-links a{ text-decoration: none; font-size: 1.0625rem; font-weight: 500; padding: 0.5rem 0.95rem; border-radius: var(--r); }
 .nav-links a:hover, .nav-links a[aria-current="true"]{ background: var(--tint); color: var(--accent); }
@@ -119,7 +120,6 @@ a.btn:hover::after{ transform: translateX(0.3rem); }
 .stats span{ display: block; margin-top: 0.35rem; color: var(--muted); font-size: 1rem; }
 
 /* Avis : une phrase en très grand, trois courtes, chacune liée à sa page Google */
-.reviews{ padding-top: clamp(1rem, 3vw, 2.5rem); }
 .rating{ font-weight: 600; font-size: 1.3125rem; margin: 0; }
 .voice{ margin: 0; }
 .voice blockquote{ margin: 0 0 0.6rem; font-size: 1.3125rem; line-height: 1.4; font-weight: 500; }
@@ -204,7 +204,7 @@ textarea.field{ min-height: 5.5rem; resize: vertical; }
 .ebook form{ display: grid; gap: 0.9rem; }
 .ebook .consent{ display: flex; gap: 0.6rem; align-items: baseline; font-weight: 400; font-size: 1rem; color: var(--muted); }
 .ebook .consent input{ flex: none; width: 1.1rem; height: 1.1rem; accent-color: var(--blue); }
-.ebook .field{ background: var(--paper); color: var(--ink); }
+.ebook .field{ background: var(--tint); color: var(--ink); }
 .ebook .btn{ justify-self: start; }
 
 /* Pied de page */
