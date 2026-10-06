@@ -15,7 +15,7 @@
 </script>
 <link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="favicon.png" type="image/png">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="site.css?v=c53b7d49">
 </head>
 <body>
 
@@ -222,10 +222,7 @@
       <div>
         <h2>Réserve ton bilan offert</h2>
         <div class="slots" id="slots">
-          <div class="slots-ask">
-            <button class="btn" type="button" id="slotsLoad">Choisir un créneau</button>
-            <p>L'agenda est fourni par Calendly. En l'affichant, ton navigateur contacte ses serveurs, qui peuvent déposer des cookies. Tu peux aussi <a href="https://calendly.com/personaltrainermycoachmickael/bilan-forme-offert" rel="noopener">l'ouvrir dans un nouvel onglet</a>.</p>
-          </div>
+          <button class="btn" type="button" id="slotsLoad">Choisir un créneau</button>
         </div>
         <p class="note">Un appel de 15 minutes. Choisis un créneau, c'est confirmé tout de suite. Si ton numéro est refusé, vérifie que le drapeau est bien sur France (+33).</p>
       </div>
@@ -325,6 +322,14 @@
             <li><strong>Le bilan offert, c'est quoi exactement ?</strong> Ton site parle d'une discussion suivie d'une première séance. Ton agenda Calendly propose un appel téléphonique de 15 minutes, nommé « Bilan forme complet offert ». La maquette reprend les deux, et ça se contredit. Dis-nous ce qui se passe vraiment (appel seul ou appel puis séance, durée, lieu) et on aligne tous les textes.</li>
             <li><strong>As-tu des photos plus lumineuses ?</strong> Les deux photos actuelles sont sombres. L'idéal : toi en séance avec un client, en lumière du jour, et un portrait souriant bien éclairé. C'est ce qui améliorerait le plus la page.</li>
           </ol>
+          <h3>Côté design, et pourquoi</h3>
+          <ul class="changes">
+            <li><strong>Chaque couleur a un rôle.</strong> Le bleu marine, c'est toi qui te présentes. Le bleu, c'est le bilan offert. Le rouge, c'est le bouton pour le réserver. Ce sont les couleurs de ton logo.</li>
+            <li><strong>Des sections en bandes.</strong> Chaque partie occupe toute la largeur avec sa couleur de fond : on voit tout de suite où l'on est en faisant défiler.</li>
+            <li><strong>Moins de cadres et d'arrondis.</strong> Les blocs arrondis partout donnaient un air de modèle tout fait.</li>
+            <li><strong>Des titres en grand, sans majuscules forcées.</strong> Une seule police de titre, plus facile à lire.</li>
+            <li><strong>Des animations discrètes.</strong> Les éléments arrivent en douceur au défilement, rien ne clignote ni ne bouge tout seul.</li>
+          </ul>
           <h3>À voir aussi, hors maquette</h3>
           <p>Ta fiche Google s'appelle « Le Coach Sportif - Coach Sportif Montpellier » et elle est placée à Montpellier, alors que le site vend Avignon. Les corrections techniques du site actuel sont dans un rapport à part.</p>
         </div>
@@ -337,7 +342,7 @@
             <li><strong>Des avis vérifiables.</strong> Quatre phrases de clients, chacune liée à son avis Google. Le compteur affiche 56 avis, comme Google ; le site en annonçait 60.</li>
             <li><strong>Les tarifs en un coup d'œil.</strong> Les deux formules côte à côte, le détail se déplie sans changer de page.</li>
             <li><strong>Avignon et alentours.</strong> Écrit dès le haut de page, avec la liste des communes en bas.</li>
-            <li><strong>Moins de texte, moins d'effets.</strong> Plus de majuscules partout, de dégradés ni d'étiquettes décoratives. Chaque section a sa bande de couleur.</li>
+            <li><strong>Moins de texte.</strong> Des phrases courtes, des icônes là où elles suffisent, plus d'étiquettes décoratives.</li>
             <li><strong>Sur téléphone.</strong> Un menu plein écran et le bouton de réservation toujours visible en bas.</li>
             <li><strong>Thème clair ou sombre.</strong> Le site suit le réglage de l'appareil.</li>
             <li><strong>Ton logo.</strong> Le portrait dessiné est dans le menu, dans l'onglet du navigateur et au-dessus de la réservation.</li>
@@ -371,6 +376,6 @@
   </div>
 </footer>
 <div class="dock" id="dock"><a class="btn" href="#reserver">Réserver mon bilan offert</a></div>
-<script src="site.js"></script>
+<script src="site.js?v=5e69ae84"></script>
 </body>
 </html>

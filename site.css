@@ -114,8 +114,9 @@ a.btn:hover::after{ transform: translateX(0.3rem); }
 .hero h1 em{ font-style: normal; color: var(--accent); }
 .where{ display: block; font-family: var(--body); font-stretch: normal; font-weight: 600; font-size: 1.1875rem; line-height: 1.4; margin-bottom: 1.25rem; color: var(--accent); }
 .hero .lead{ margin: 1.75rem 0; max-width: 38rem; }
-.hero-actions{ display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; }
-.about{ margin: -0.5rem 0 1.75rem; max-width: 38rem; }
+/* L'espace avant le bouton est porté par le bouton, pour rester le même que le volet soit ouvert ou fermé */
+.hero-actions{ display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; margin-top: 2rem; }
+.about{ margin: -0.5rem 0 0; max-width: 38rem; }
 .about p{ margin: 1rem 0 0; }
 /* Le portrait occupe toute la hauteur de la bande, sans cadre ; sa largeur reste sous celle du fichier pour qu'il soit net */
 .hero-photo{ grid-area: photo; margin: 0; position: relative; overflow: hidden; }
@@ -188,8 +189,9 @@ a.btn:hover::after{ transform: translateX(0.3rem); }
 #reserver{ position: relative; }
 .peek{ position: absolute; bottom: 100%; right: max(1.25rem, calc(50% - 36.75rem)); width: 6.5rem; height: 4.1rem; overflow: hidden; }
 .peek img{ width: 100%; }
-.slots-ask{ display: grid; gap: 1.25rem; justify-items: center; }
-.slots p{ max-width: 26rem; margin: 0 auto; font-size: 1rem; }
+.slots p{ max-width: 22rem; margin: 0 auto; }
+.spinner{ width: 2.75rem; height: 2.75rem; border-radius: 50%; border: 4px solid #DFE6F5; border-top-color: #1147B4; animation: spin 0.9s linear infinite; }
+@keyframes spin{ to{ transform: rotate(1turn); } }
 .callback{ display: grid; gap: 1rem; }
 .callback label, .ebook label{ display: grid; gap: 0.3rem; font-weight: 500; }
 .field{ font: inherit; color: #0F1A33; background: #fff; border: 0; border-radius: var(--r); padding: 0.8rem 1rem; width: 100%; }

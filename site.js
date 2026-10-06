@@ -56,22 +56,34 @@
   dockWatch.observe(document.getElementById('reserver'));
 
   /* L'agenda Calendly ne se charge qu'au clic : aucun échange avec Calendly avant que le visiteur le demande.
-     Le bouton reste affiché jusqu'à la première réponse de Calendly, puis le cadre suit la hauteur annoncée. */
-  var slotsLoad = document.getElementById('slotsLoad');
-  slotsLoad.addEventListener('click', function(){
-    slotsLoad.disabled = true;
-    slotsLoad.textContent = "L'agenda se charge";
+     Un indicateur tourne jusqu'à la première réponse de Calendly, puis le cadre suit la hauteur annoncée.
+     Sans réponse au bout de 20 secondes, un lien direct remplace l'indicateur. */
+  document.getElementById('slotsLoad').addEventListener('click', function(){
+    var wait = document.createElement('span');
+    wait.className = 'spinner';
+    wait.setAttribute('role', 'status');
+    wait.setAttribute('aria-label', "L'agenda se charge");
     var frame = document.createElement('iframe');
     frame.title = 'Choisir un créneau pour le bilan offert';
-    frame.src = 'https://calendly.com/personaltrainermycoachmickael/bilan-forme-offert'
-      + '?embed_type=Inline&embed_domain=' + encodeURIComponent(location.hostname)
+    var url = 'https://calendly.com/personaltrainermycoachmickael/bilan-forme-offert';
+    frame.src = url + '?embed_type=Inline&embed_domain=' + encodeURIComponent(location.hostname)
       + '&hide_gdpr_banner=1&hide_event_type_details=1';
-    slots.append(frame);
+    slots.replaceChildren(wait, frame);
+    var giveUp = setTimeout(function(){
+      var help = document.createElement('p');
+      var link = document.createElement('a');
+      link.href = url;
+      link.rel = 'noopener';
+      link.textContent = 'Ouvre-le dans un nouvel onglet';
+      help.append("L'agenda ne répond pas. ", link, '.');
+      wait.replaceWith(help);
+    }, 20000);
     window.addEventListener('message', function(e){
       if (e.origin !== 'https://calendly.com' || e.source !== frame.contentWindow || !e.data) return;
       if (!slots.classList.contains('loaded')) {
+        clearTimeout(giveUp);
         slots.classList.add('loaded');
-        slots.querySelector('.slots-ask').remove();
+        while (slots.firstChild !== frame) slots.firstChild.remove();   /* le cadre ne bouge pas : le déplacer le rechargerait */
       }
       var height = e.data.event === 'calendly.page_height' && e.data.payload && parseInt(e.data.payload.height, 10);
       if (height) frame.style.height = height + 'px';
