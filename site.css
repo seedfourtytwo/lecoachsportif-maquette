@@ -29,6 +29,7 @@ html{ -webkit-text-size-adjust: 100%; scroll-padding-top: 4.5rem; }
 body{ margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 1.125rem; line-height: 1.6; }
 img{ display: block; max-width: 100%; height: auto; }
 a{ color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 2px; }
+a[href^="tel:"]{ white-space: nowrap; }
 :focus-visible{ outline: 3px solid var(--accent); outline-offset: 3px; }
 p{ margin: 0 0 1rem; text-wrap: pretty; }
 
@@ -74,10 +75,13 @@ a.btn:hover::after{ transform: translateX(0.3rem); }
   @keyframes nav-lift{ to{ box-shadow: 0 0.25rem 1.25rem light-dark(rgba(15, 26, 51, 0.1), rgba(0, 0, 0, 0.5)); } }
 }
 .nav-bar{ display: flex; align-items: center; gap: 0.25rem; max-width: 76rem; margin: 0 auto; padding: 0.5rem 1.25rem; }
-.brand{ font-family: var(--display); font-stretch: 72%; font-weight: 800; font-size: 1.35rem; text-decoration: none; margin-right: auto; white-space: nowrap; }
+.brand{ font-family: var(--display); font-stretch: 72%; font-weight: 800; font-size: 1.35rem; text-decoration: none; margin-right: auto; white-space: nowrap; display: flex; align-items: center; gap: 0.6rem; }
+/* Le portrait dessiné de son logo sert de signe à côté du nom */
+.brand img{ width: auto; height: 2.4rem; }
+.brand span{ margin-left: -0.3rem; }
 .brand span{ color: var(--accent); }
 .nav-links{ display: flex; gap: 0.15rem; }
-.nav-links a{ text-decoration: none; font-size: 1.0625rem; font-weight: 500; padding: 0.5rem 0.95rem; border-radius: var(--r); }
+.nav-links a{ white-space: nowrap; text-decoration: none; font-size: 1.0625rem; font-weight: 500; padding: 0.5rem 0.95rem; border-radius: var(--r); }
 .nav-links a:hover, .nav-links a[aria-current="true"]{ background: var(--tint); color: var(--accent); }
 .ghost{ font: inherit; font-weight: 500; color: var(--muted); background: none; border: 0; border-radius: var(--r); padding: 0.5rem 0.95rem; cursor: pointer; white-space: nowrap; }
 .ghost:hover{ background: var(--tint); color: var(--accent); }
@@ -111,12 +115,14 @@ a.btn:hover::after{ transform: translateX(0.3rem); }
 .where{ display: block; font-family: var(--body); font-stretch: normal; font-weight: 600; font-size: 1.1875rem; line-height: 1.4; margin-bottom: 1.25rem; color: var(--accent); }
 .hero .lead{ margin: 1.75rem 0; max-width: 38rem; }
 .hero-actions{ display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; }
+.about{ margin-top: 1.5rem; max-width: 38rem; }
+.about p{ margin: 1rem 0 0; }
 /* Le portrait occupe toute la hauteur de la bande, sans cadre ; sa largeur reste sous celle du fichier pour qu'il soit net */
 .hero-photo{ grid-area: photo; margin: 0; position: relative; overflow: hidden; }
 .hero-photo img{ position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
 
 /* Avis : une phrase en très grand, trois courtes, chacune liée à sa page Google */
-.rating{ font-weight: 600; font-size: 1.3125rem; margin: 0; }
+.rating{ font-family: var(--body); font-stretch: normal; font-weight: 600; font-size: 1.3125rem; line-height: 1.6; margin: 0; }
 .voice{ margin: 0; }
 .voice blockquote{ margin: 0 0 0.6rem; font-size: 1.3125rem; line-height: 1.4; font-weight: 500; }
 .voice figcaption{ color: var(--muted); font-size: 1rem; }
@@ -173,6 +179,10 @@ a.btn:hover::after{ transform: translateX(0.3rem); }
 .slots.loaded{ padding: 0; overflow: hidden; display: block; }
 .slots.loaded iframe{ height: 34rem; transition: height 0.25s ease; }
 .direct{ position: sticky; top: 6rem; }
+/* Le portrait dessiné dépasse du bord de la bande, comme s'il regardait par-dessus */
+#reserver{ position: relative; }
+.peek{ position: absolute; bottom: 100%; right: max(1.25rem, calc(50% - 36.75rem)); width: 6.5rem; height: 4.1rem; overflow: hidden; }
+.peek img{ width: 100%; }
 .slots p{ max-width: 22rem; margin: 0 auto; }
 .callback{ display: grid; gap: 1rem; }
 .callback label, .ebook label{ display: grid; gap: 0.3rem; font-weight: 500; }
@@ -225,12 +235,17 @@ textarea.field{ min-height: 5.5rem; resize: vertical; }
 /* Barre de réservation sur téléphone, visible une fois le bouton d'accueil passé */
 .dock{ display: none; }
 
+/* Entre tablette et grand écran, le menu se resserre pour tenir sur une ligne */
+@media (max-width: 72rem){
+  .nav-links a{ padding-inline: 0.55rem; }
+  .nav .btn{ white-space: nowrap; padding-inline: 0.9rem; }
+}
 @media (max-width: 62rem){
   .nav-links, .nav-bar > .theme-btn, .nav-bar > .btn{ display: none; }
   .menu-open{ display: inline-block; }
   .hero-grid{ grid-template-columns: 1fr; grid-template-areas: "head" "photo" "body"; grid-template-rows: auto; }
   .hero-head{ padding-top: 2rem; }
-  .hero-photo{ margin: 1.75rem -1.25rem; aspect-ratio: 4 / 3; }
+  .hero-photo{ margin: 1.75rem -1.25rem; height: min(75vw, 24rem); }
   .hero .lead{ margin-top: 0; }
   .voices, .start, .booking, .faq, .free, .ebook, .free-first{ grid-template-columns: 1fr; }
   .offers{ grid-template-columns: 1fr; grid-template-rows: none; gap: 1.5rem; }
@@ -248,23 +263,26 @@ textarea.field{ min-height: 5.5rem; resize: vertical; }
 }
 @media (max-width: 36rem){
   .rates{ grid-auto-flow: row; row-gap: 1.5rem; }
+  .peek{ width: 5rem; height: 3.15rem; }
   .rate + .rate{ padding-left: 0; border-left: 0; }
 }
 
 /* Mouvement : le bandeau d'accueil entre en scène au chargement, les blocs montent une fois en arrivant à l'écran */
 @media (prefers-reduced-motion: no-preference){
   @keyframes rise{ from{ opacity: 0; transform: translateY(2rem); } }
+  @keyframes peek{ from{ transform: translateY(100%); } }
   @keyframes settle{ from{ opacity: 0; transform: scale(1.06); } }
   .hero .where, .hero .line, .hero .lead, .hero-actions{ animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
   .hero .line:nth-of-type(2){ animation-delay: 0.08s; }
   .hero .line:nth-of-type(3){ animation-delay: 0.16s; }
   .hero .lead{ animation-delay: 0.28s; }
   .hero-actions{ animation-delay: 0.38s; }
-  .hero-photo{ animation: settle 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  .hero-photo img{ animation: settle 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
   @supports (animation-timeline: view()){
-    .rating, .voice, .band h2, .intro .lead, .free-first, .offer, .steps li, .start figure, .booking > *, .faq-list, .free a, .ebook{
+    .voice, .band h2, .intro .lead, .free-first, .offer, .steps li, .start figure, .booking > *, .faq-list, .free a, .ebook{
       animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 45%;
     }
+    .peek img{ animation: peek linear both; animation-timeline: view(); animation-range: entry 20% cover 35%; }
     .voices > :nth-child(2), .offers > :nth-child(2), .steps li:nth-child(2), .free > :nth-child(2){ animation-range: entry 8% entry 55%; }
     .voices > :nth-child(3), .steps li:nth-child(3), .free > :nth-child(3){ animation-range: entry 16% entry 65%; }
   }

@@ -14,6 +14,7 @@
   } catch (e) {}
 </script>
 <link rel="preload" href="fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="favicon.png" type="image/png">
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
@@ -22,7 +23,7 @@
 
 <header class="nav">
   <div class="nav-bar">
-    <a class="brand" href="./">Le Coach <span>Sportif</span></a>
+    <a class="brand" href="./"><img src="images/mickael-dessin.png" width="240" height="254" alt="">Le Coach <span>Sportif</span></a>
     <nav class="nav-links" aria-label="Navigation principale">
       <a href="#avis">Avis</a>
       <a href="#tarifs">Tarifs</a>
@@ -87,13 +88,22 @@
         <div class="hero-actions">
           <a class="btn" href="#reserver" id="heroBook">Réserver mon bilan offert</a>
         </div>
+        <details class="more about">
+          <summary>Qui suis-je ?</summary>
+          <p>Mon travail : corriger tes gestes, doser l'effort et tenir le cap avec toi, semaine après semaine. Si tu habites loin d'Avignon, je te suis à distance.</p>
+          <ul class="facts">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Diplôme d'État BPJEPS, spécialité activités physiques de la forme et de la force. Une formation en anatomie, en physiologie et en sécurité.</span></li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Carte professionnelle d'éducateur sportif, <a href="https://recherche-educateur.sports.gouv.fr" rel="noopener">vérifiable en ligne</a>.</span></li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Assuré en responsabilité civile professionnelle.</span></li>
+          </ul>
+        </details>
       </div>
     </div>
   </section>
 
-  <section class="band band--tint reviews" id="avis">
+  <section class="band band--tint" id="avis">
     <div class="wrap">
-      <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> 56 avis Google, tous à cinq étoiles</p>
+      <h2 class="rating"><span class="stars" aria-hidden="true">★★★★★</span> 56 avis Google, tous à cinq étoiles</h2>
       <figure class="voice featured">
         <blockquote>« À 60 ans, on peut retrouver la forme de ses 20 ans, quand on est bien accompagné. »</blockquote>
         <figcaption>Marinette Epifanio, un an et demi de coaching après deux prothèses de hanche, <a href="https://www.google.com/maps/contrib/117958380226126533431/place/ChIJQWrjyyGvthIRpLLf7QFSSnQ" rel="noopener">avis Google</a></figcaption>
@@ -132,7 +142,7 @@
       <div class="offers">
         <div class="offer">
           <h3>En personne, à Avignon et alentours</h3>
-          <p>Une heure en tête-à-tête, en salle ou chez toi. Déplacement compris.</p>
+          <p>Une heure en tête‑à‑tête, en salle ou chez toi. Déplacement compris.</p>
           <div class="rates">
             <div class="rate"><strong>39 € <small>la séance</small></strong><span>Une séance par semaine<span class="muted">environ 150 € par mois</span></span></div>
             <div class="rate"><strong>36 € <small>la séance</small></strong><span>Deux séances par semaine<span class="muted">environ 290 € par mois</span></span></div>
@@ -205,6 +215,7 @@
   </section>
 
   <section class="band band--blue" id="reserver">
+    <span class="peek"><img src="images/mickael-dessin.png" width="240" height="254" loading="lazy" alt=""></span>
     <div class="wrap booking">
       <div>
         <h2>Réserve ton bilan offert</h2>
