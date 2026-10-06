@@ -127,10 +127,10 @@ h3{ font-size: 1.5rem; font-stretch: 80%; font-weight: 700; line-height: 1.15; m
 .more[open] summary::after, .faq details[open] summary::after{ content: "−"; }
 .more::details-content, .faq details::details-content{ block-size: 0; overflow: clip; transition: block-size 0.3s ease, content-visibility 0.3s allow-discrete; }
 .more[open]::details-content, .faq details[open]::details-content{ block-size: auto; }
-.more h4{ font-family: var(--body); font-size: 1.125rem; font-weight: 700; margin: 1.5rem 0 0.4rem; }
-.more p, .more ul{ margin: 0 0 0.5rem; }
-.more ul{ padding-left: 1.2rem; }
-.more li{ margin-bottom: 0.3rem; }
+.facts{ list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; gap: 0.8rem; }
+.facts li{ display: grid; grid-template-columns: 1.5rem 1fr; gap: 0.8rem; align-items: start; }
+.ico{ width: 1.5rem; height: 1.5rem; margin-top: 0.15rem; fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.more .fine{ margin-top: 0.75rem; }
 
 /* Comment démarrer */
 .about{ display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(1.5rem, 5vw, 5rem); align-items: start; }
