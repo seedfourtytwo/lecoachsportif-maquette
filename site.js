@@ -1,12 +1,10 @@
 (function(){
   var root = document.documentElement;
-  var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
   var order = ['system', 'light', 'dark'];
   var names = { system: 'Thème auto', light: 'Thème clair', dark: 'Thème sombre' };
   var cyclers = document.querySelectorAll('[data-theme-cycle]');
 
   function current(){ return root.dataset.theme || 'system'; }
-  function isDark(){ return current() === 'dark' || (current() === 'system' && darkQuery.matches); }
   function paint(){
     cyclers.forEach(function(b){
       b.setAttribute('aria-label', names[current()] + ', changer');
@@ -57,20 +55,29 @@
   dockWatch.observe(document.getElementById('heroBook'));
   dockWatch.observe(document.getElementById('reserver'));
 
-  /* L'agenda Calendly se charge dans la page, à l'approche de la section de réservation. */
+  /* L'agenda Calendly se charge dans la page, à l'approche de la section de réservation.
+     Le message d'attente reste affiché jusqu'à la première réponse de Calendly, puis le cadre suit la hauteur annoncée. */
   var slotWatch = new IntersectionObserver(function(entries){
     if (!entries[0].isIntersecting) return;
     slotWatch.disconnect();
-    var colors = isDark()
-      ? 'background_color=0A1024&text_color=EEF1F8&primary_color=8FB0FF'
-      : 'background_color=FFFFFF&text_color=0F1A33&primary_color=1147B4';
     var frame = document.createElement('iframe');
     frame.title = 'Choisir un créneau pour le bilan offert';
     frame.src = 'https://calendly.com/personaltrainermycoachmickael/bilan-forme-offert'
       + '?embed_type=Inline&embed_domain=' + encodeURIComponent(location.hostname)
-      + '&hide_gdpr_banner=1&hide_event_type_details=1&' + colors;
-    slots.classList.add('loaded');
-    slots.replaceChildren(frame);
+      + '&hide_gdpr_banner=1&hide_event_type_details=1';
+    slots.append(frame);
+    window.addEventListener('message', function(e){
+      if (e.origin !== 'https://calendly.com' || e.source !== frame.contentWindow || !e.data) return;
+      if (!slots.classList.contains('loaded')) {
+        slots.classList.add('loaded');
+        slots.querySelector('p').remove();
+      }
+      var height = e.data.event === 'calendly.page_height' && e.data.payload && parseInt(e.data.payload.height, 10);
+      if (height) frame.style.height = height + 'px';
+      if (e.data.event === 'calendly.date_and_time_selected' || e.data.event === 'calendly.event_scheduled') {
+        slots.scrollIntoView({ block: 'start' });
+      }
+    });
   }, { rootMargin: '600px' });
   slotWatch.observe(slots);
 

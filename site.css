@@ -100,24 +100,21 @@ a.btn:hover::after{ transform: translateX(0.3rem); }
 .sheet-foot .theme-btn:hover{ background: none; color: #fff; }
 .sheet-foot a{ font-size: 1.25rem; font-weight: 600; }
 
-/* Accueil : le titre à gauche, le portrait en colonne sur toute la hauteur de la bande à droite, les chiffres clés en bas */
+/* Accueil : le titre à gauche, le portrait en colonne sur toute la hauteur de la bande à droite */
 .hero{ padding-block: 0; }
-.hero-grid{ display: grid; grid-template-columns: 1fr minmax(0, 28rem); grid-template-areas: "head photo" "body photo" "stats photo"; grid-template-rows: 1fr auto auto; column-gap: clamp(2rem, 6vw, 6rem); }
+.hero-grid{ display: grid; grid-template-columns: 1fr minmax(0, 28rem); grid-template-areas: "head photo" "body photo"; grid-template-rows: 1fr auto; column-gap: clamp(2rem, 6vw, 6rem); }
 .hero-head{ grid-area: head; align-self: end; padding-top: clamp(2.5rem, 5vw, 4.5rem); }
-.hero-body{ grid-area: body; }
+.hero-body{ grid-area: body; padding-bottom: clamp(2.5rem, 5vw, 4.5rem); }
 .hero h1{ font-size: clamp(3rem, 6.6vw, 5.75rem); line-height: 0.95; }
 .hero h1 .line{ display: block; }
 .hero h1 em{ font-style: normal; color: var(--accent); }
 .where{ display: block; font-family: var(--body); font-stretch: normal; font-weight: 600; font-size: 1.1875rem; line-height: 1.4; margin-bottom: 1.25rem; color: var(--accent); }
-.hero .lead{ margin: 1.75rem 0; max-width: 33rem; }
+.hero .lead{ margin: 1.75rem 0; max-width: 38rem; }
 .hero-actions{ display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; }
 .hero-actions span{ color: var(--muted); }
 /* Le portrait occupe toute la hauteur de la bande, sans cadre ; sa largeur reste sous celle du fichier pour qu'il soit net */
 .hero-photo{ grid-area: photo; margin: 0; position: relative; overflow: hidden; }
 .hero-photo img{ position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
-.stats{ grid-area: stats; list-style: none; margin: clamp(2.5rem, 5vw, 4rem) 0 0; padding: 0 0 clamp(3rem, 6vw, 5rem); display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 1.5rem clamp(2rem, 5vw, 4.5rem); }
-.stats strong{ display: block; font-family: var(--display); font-stretch: 72%; font-weight: 800; font-size: clamp(1.9rem, 3vw, 2.6rem); line-height: 1; }
-.stats span{ display: block; margin-top: 0.35rem; color: var(--muted); font-size: 1rem; }
 
 /* Avis : une phrase en très grand, trois courtes, chacune liée à sa page Google */
 .rating{ font-weight: 600; font-size: 1.3125rem; margin: 0; }
@@ -131,11 +128,11 @@ a.btn:hover::after{ transform: translateX(0.3rem); }
 /* Tarifs : le bilan offert en bandeau, puis deux panneaux alignés ligne à ligne */
 .free-first{ background: var(--blue); color: #fff; border-radius: var(--r); padding: 2rem clamp(1.5rem, 3vw, 2.5rem); display: grid; grid-template-columns: 1fr auto; gap: 1rem 2.5rem; align-items: center; }
 .free-first p{ margin: 0; max-width: 36rem; }
-.offers{ display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(5, auto); gap: 0 1.5rem; margin-top: 1.5rem; }
+.offers{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(5, auto); gap: 0 1.5rem; margin-top: 1.5rem; }
 .offer{ background: var(--panel); border-radius: var(--r); padding: clamp(1.5rem, 3vw, 2.5rem); display: grid; grid-template-rows: subgrid; grid-row: span 5; row-gap: 0; transition: transform 0.2s ease; }
 .offer:hover{ transform: translateY(-4px); }
 .offer > p{ margin: 0; color: var(--muted); }
-.rates{ display: grid; grid-auto-flow: column; grid-auto-columns: max-content; margin: 2rem 0; }
+.rates{ display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, max-content); margin: 2rem 0; }
 .rate{ padding-right: clamp(1rem, 2vw, 2.25rem); }
 .rate + .rate{ padding-left: clamp(1rem, 2vw, 2.25rem); border-left: 2px solid var(--tint); }
 .rate strong{ display: block; font-family: var(--display); font-stretch: 72%; font-weight: 800; font-size: clamp(3rem, 4.4vw, 4rem); line-height: 0.95; font-variant-numeric: tabular-nums; }
@@ -172,8 +169,11 @@ a.btn:hover::after{ transform: translateX(0.3rem); }
 /* Réservation */
 .booking{ display: grid; grid-template-columns: 1.2fr 0.8fr; gap: clamp(2rem, 5vw, 5rem); align-items: start; }
 .slots{ background: #fff; color: #0F1A33; border-radius: var(--r); padding: 2rem; min-height: 14rem; display: grid; place-items: center; text-align: center; }
-.slots.loaded{ padding: 0; overflow: hidden; }
-.slots iframe{ display: block; width: 100%; height: 44rem; border: 0; }
+/* L'agenda reste invisible tant que Calendly n'a pas répondu ; ensuite il prend la hauteur que Calendly annonce, sans barre de défilement interne */
+.slots iframe{ display: block; width: 100%; height: 0; border: 0; }
+.slots.loaded{ padding: 0; overflow: hidden; display: block; }
+.slots.loaded iframe{ height: 34rem; transition: height 0.25s ease; }
+.direct{ position: sticky; top: 6rem; }
 .slots p{ max-width: 22rem; margin: 0 auto; }
 .callback{ display: grid; gap: 1rem; }
 .callback label, .ebook label{ display: grid; gap: 0.3rem; font-weight: 500; }
@@ -229,11 +229,10 @@ textarea.field{ min-height: 5.5rem; resize: vertical; }
 @media (max-width: 62rem){
   .nav-links, .nav-bar > .theme-btn, .nav-bar > .btn{ display: none; }
   .menu-open{ display: inline-block; }
-  .hero-grid{ grid-template-columns: 1fr; grid-template-areas: "head" "photo" "body" "stats"; grid-template-rows: auto; }
+  .hero-grid{ grid-template-columns: 1fr; grid-template-areas: "head" "photo" "body"; grid-template-rows: auto; }
   .hero-head{ padding-top: 2rem; }
   .hero-photo{ margin: 1.75rem -1.25rem; aspect-ratio: 4 / 3; }
   .hero .lead{ margin-top: 0; }
-  .stats{ grid-template-columns: 1fr; }
   .voices, .start, .booking, .faq, .free, .ebook, .free-first{ grid-template-columns: 1fr; }
   .offers{ grid-template-columns: 1fr; grid-template-rows: none; gap: 1.5rem; }
   .offer{ grid-template-rows: none; grid-row: auto; }
@@ -257,14 +256,11 @@ textarea.field{ min-height: 5.5rem; resize: vertical; }
 @media (prefers-reduced-motion: no-preference){
   @keyframes rise{ from{ opacity: 0; transform: translateY(2rem); } }
   @keyframes settle{ from{ opacity: 0; transform: scale(1.06); } }
-  .hero .where, .hero .line, .hero .lead, .hero-actions, .stats li{ animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  .hero .where, .hero .line, .hero .lead, .hero-actions{ animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
   .hero .line:nth-of-type(2){ animation-delay: 0.08s; }
   .hero .line:nth-of-type(3){ animation-delay: 0.16s; }
   .hero .lead{ animation-delay: 0.28s; }
   .hero-actions{ animation-delay: 0.38s; }
-  .stats li{ animation-delay: 0.5s; }
-  .stats li:nth-child(2){ animation-delay: 0.58s; }
-  .stats li:nth-child(3){ animation-delay: 0.66s; }
   .hero-photo{ animation: settle 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
   @supports (animation-timeline: view()){
     .rating, .voice, .band h2, .intro .lead, .free-first, .offer, .steps li, .start figure, .booking > *, .faq-list, .free a, .ebook{
