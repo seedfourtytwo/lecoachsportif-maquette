@@ -13,6 +13,7 @@
     if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved;
   } catch (e) {}
 </script>
+<link rel="preload" href="../fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../site.css">
 </head>
 <body>
@@ -35,7 +36,7 @@
       <svg viewBox="0 0 24 24" data-icon="dark" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg>
       <span class="theme-label"></span>
     </button>
-    <a class="btn small" href="../#reserver">Bilan offert</a>
+    <a class="btn small" href="../#reserver">Réserver mon bilan offert</a>
     <button class="ghost menu-open" type="button" id="menuOpen" aria-haspopup="dialog">Menu</button>
   </div>
 </header>
@@ -125,7 +126,7 @@
 <p>Les présentes CGV sont soumises au droit français.</p>
   </article>
 
-  <footer class="foot">
+  <footer class="foot bleed">
     <div>
       <h3>Le Coach Sportif</h3>
       <p>Mickaël Julien, coach sportif diplômé d'État</p>

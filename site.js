@@ -74,6 +74,14 @@
   }, { rootMargin: '600px' });
   slotWatch.observe(slots);
 
+  /* Les deux « En savoir plus » s'ouvrent et se ferment ensemble, pour comparer les formules ligne à ligne. */
+  var details = document.querySelectorAll('.offer .more');
+  details.forEach(function(d){
+    d.addEventListener('toggle', function(){
+      details.forEach(function(other){ other.open = d.open; });
+    });
+  });
+
   /* Maquette : les formulaires ne sont pas branchés. */
   document.querySelectorAll('form').forEach(function(f){
     f.addEventListener('submit', function(e){ e.preventDefault(); });
