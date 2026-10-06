@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Coach sportif à Avignon, à domicile ou en salle | Mickaël Julien</title>
-<meta name="description" content="Mickaël Julien, coach sportif diplômé d'État depuis 2014 à Avignon et alentours. Séances individuelles d'une heure, à domicile ou en salle. Bilan offert.">
+<title>Coach sportif à Avignon et alentours, en salle ou à domicile | Mickaël Julien</title>
+<meta name="description" content="Mickaël Julien, coach sportif diplômé d'État depuis 2014 à Avignon et alentours. Séances individuelles d'une heure, en salle ou à domicile. Bilan offert.">
 <meta name="robots" content="noindex">
 <script>
   /* Thème choisi à la main ; sans choix enregistré, le système décide. */
@@ -13,207 +13,7 @@
     if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved;
   } catch (e) {}
 </script>
-<style>
-  @font-face{ font-family: "Archivo"; src: url("fonts/archivo.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; font-display: swap; }
-  @font-face{ font-family: "Work Sans"; src: url("fonts/work-sans.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
-
-  :root{
-    color-scheme: light dark;
-    --blue: #1147B4;
-    --red: #EA183D;
-    --paper: light-dark(#FFFFFF, #0A1024);
-    --tint: light-dark(#EEF2FC, #141D3A);
-    --ink: light-dark(#0F1A33, #EEF1F8);
-    --muted: light-dark(#465068, #B4BDD3);
-    --star: #F2A900;
-    --accent: light-dark(#1147B4, #8FB0FF);
-    --track: light-dark(#D9E2F7, #24305A);
-    --display: "Archivo", "Arial Narrow", sans-serif;
-    --body: "Work Sans", system-ui, sans-serif;
-    --r-lg: 2rem;
-    --r-md: 1.25rem;
-  }
-  :root[data-theme="light"]{ color-scheme: light; }
-  :root[data-theme="dark"]{ color-scheme: dark; }
-
-  *{ box-sizing: border-box; }
-  html{ -webkit-text-size-adjust: 100%; scroll-padding-top: 5rem; }
-  @media (prefers-reduced-motion: no-preference){ html{ scroll-behavior: smooth; } }
-  body{ margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 1.125rem; line-height: 1.6; }
-  img{ display: block; max-width: 100%; height: auto; }
-  a{ color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 2px; }
-  :focus-visible{ outline: 3px solid var(--red); outline-offset: 3px; }
-  p{ margin: 0 0 1rem; }
-
-  .page{ max-width: 78rem; margin: 0 auto; padding: 0 1.25rem; }
-  .block{ padding: 5.5rem 0 0; }
-  .narrow{ max-width: 46rem; }
-
-  h1, h2, h3, .display{ font-family: var(--display); font-stretch: 72%; font-weight: 800; line-height: 1; margin: 0; text-wrap: balance; }
-  h1{ font-size: clamp(2.9rem, 6.6vw, 5.25rem); line-height: 0.95; }
-  h1 em{ font-style: normal; color: var(--accent); }
-  h2{ font-size: clamp(2.2rem, 4.6vw, 3.6rem); margin-bottom: 1.5rem; }
-  h3{ font-size: 1.5rem; font-stretch: 80%; font-weight: 700; line-height: 1.15; margin-bottom: 0.4rem; }
-  .lead{ font-size: 1.25rem; line-height: 1.5; }
-  .muted{ color: var(--muted); }
-
-  /* Bouton de réservation : le seul rouge de la page */
-  .btn{
-    display: inline-flex; align-items: center; justify-content: center; min-height: 3.25rem;
-    background: var(--red); color: #fff; text-decoration: none; cursor: pointer; border: 0; border-radius: 99rem;
-    font-family: var(--display); font-stretch: 85%; font-weight: 700; font-size: 1.125rem; padding: 0.6rem 1.75rem;
-    transition: transform 0.15s ease;
-  }
-  .btn:hover{ transform: translateY(-2px); }
-  .btn.small{ min-height: 2.6rem; font-size: 1rem; padding: 0.4rem 1.2rem; }
-
-  /* Menu flottant */
-  .draft{ margin: 0; padding: 0.5rem 1.25rem; text-align: center; font-size: 0.9375rem; background: var(--tint); color: var(--muted); }
-  .nav{ position: sticky; top: 0; z-index: 20; background: var(--paper); }
-  .nav-bar{ display: flex; align-items: center; gap: 0.25rem; max-width: 78rem; margin: 0 auto; padding: 0.7rem 1.25rem; }
-  .brand{ font-family: var(--display); font-stretch: 72%; font-weight: 800; font-size: 1.35rem; text-decoration: none; margin-right: auto; white-space: nowrap; }
-  .brand span{ color: var(--red); }
-  .nav-links{ display: flex; gap: 0.15rem; }
-  .nav-links a{ text-decoration: none; font-weight: 500; padding: 0.5rem 0.95rem; border-radius: 99rem; }
-  .nav-links a:hover, .nav-links a[aria-current="true"]{ background: var(--tint); color: var(--accent); }
-  .stars{ color: var(--star); }
-  .ghost{ font: inherit; font-weight: 500; color: var(--muted); background: none; border: 0; border-radius: 99rem; padding: 0.5rem 0.95rem; cursor: pointer; white-space: nowrap; }
-  .ghost:hover{ background: var(--tint); color: var(--accent); }
-  .menu-open{ display: none; color: var(--ink); }
-  .theme-btn{ display: inline-flex; align-items: center; gap: 0.6rem; font: inherit; color: var(--muted); background: none; border: 0; border-radius: 99rem; padding: 0.6rem; cursor: pointer; }
-  .theme-btn:hover{ color: var(--accent); background: var(--tint); }
-  .theme-btn svg[hidden]{ display: none; }
-  .theme-btn svg{ width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
-  .nav-bar .theme-label{ position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
-
-  /* Menu plein écran sur téléphone */
-  .sheet{ width: 100vw; max-width: none; height: 100dvh; max-height: none; margin: 0; border: 0; padding: 1.5rem; background: var(--blue); color: #fff; }
-  .sheet[open]{ display: flex; flex-direction: column; }
-  .sheet .close{ align-self: flex-end; color: #fff; }
-  .sheet .close:hover{ background: rgba(255, 255, 255, 0.16); color: #fff; }
-  .sheet nav{ display: grid; gap: 0.25rem; margin: auto 0; }
-  .sheet nav a{ font-family: var(--display); font-stretch: 72%; font-weight: 800; font-size: 2.75rem; line-height: 1.15; text-decoration: none; }
-  .sheet-foot{ display: grid; gap: 1rem; }
-  .sheet-foot .theme-btn{ color: #fff; justify-self: start; padding-left: 0; }
-  .sheet-foot .theme-btn:hover{ background: none; color: #fff; }
-  .sheet-foot a{ font-size: 1.25rem; font-weight: 600; }
-
-  /* Accueil */
-  .hero{ margin-top: 0.5rem; background: var(--tint); border-radius: var(--r-lg); padding: clamp(1.5rem, 4.5vw, 4rem); display: grid; grid-template-columns: 1.15fr 0.85fr; grid-template-areas: "head photo" "body photo"; grid-template-rows: auto 1fr; column-gap: clamp(1.5rem, 4vw, 4rem); }
-  .hero-head{ grid-area: head; align-self: end; }
-  .hero-body{ grid-area: body; }
-  .where{ display: block; font-family: var(--body); font-stretch: normal; font-weight: 600; font-size: 1.125rem; line-height: 1.4; margin-bottom: 1.25rem; color: var(--muted); }
-  .hero .lead{ margin: 1.5rem 0 1.75rem; max-width: 33rem; }
-  .hero-actions{ display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; }
-  .hero-actions a:not(.btn){ font-weight: 600; font-size: 1.125rem; }
-  .proof{ margin: 2rem 0 0; font-weight: 500; }
-  .hero-photo{ grid-area: photo; margin: 0; align-self: center; }
-  .hero-photo img{ width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 22%; border-radius: var(--r-md); }
-  .hero-quote{ margin: 0.75rem 0 0; background: var(--paper); color: var(--ink); border-radius: var(--r-md); padding: 1.15rem 1.35rem; }
-  .hero-quote p{ font-size: 1.1875rem; line-height: 1.4; font-weight: 500; margin: 0 0 0.4rem; }
-  .hero-quote footer{ font-size: 1rem; color: var(--muted); }
-
-  /* Présentation */
-  .about{ display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(1.5rem, 5vw, 5rem); align-items: start; }
-  .about figure{ margin: 0; }
-  .about img{ width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--r-md); }
-  .about figcaption{ margin-top: 0.75rem; color: var(--muted); font-size: 1rem; }
-
-  /* Avis : une situation de départ, la phrase d'un client, le lien pour vérifier */
-  .voices{ display: grid; grid-template-columns: 1fr 1fr; gap: 3rem 4.5rem; margin-top: 2.75rem; }
-  .voice{ margin: 0; }
-  .voice h3{ color: var(--accent); }
-  .voice blockquote{ margin: 0.5rem 0 0.75rem; font-size: 1.4375rem; line-height: 1.4; font-weight: 500; }
-  .voice figcaption{ color: var(--muted); font-size: 1rem; }
-
-
-  /* Étapes : une vraie suite, donc numérotée */
-  .steps{ display: grid; gap: 1.75rem; margin: 2.25rem 0 0; padding: 0; list-style: none; counter-reset: step; }
-  .steps li{ counter-increment: step; display: grid; grid-template-columns: 3.5rem 1fr; column-gap: 1rem; }
-  .steps li::before{ content: counter(step); grid-row: span 2; font-family: var(--display); font-stretch: 72%; font-weight: 800; font-size: 4rem; line-height: 0.9; color: var(--accent); }
-  .steps p{ margin: 0; }
-
-  /* Tarifs */
-  .prices{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-  .price{ background: var(--tint); border-radius: var(--r-md); padding: 1.75rem; display: flex; flex-direction: column; }
-  .price.first{ background: var(--blue); color: #fff; }
-  .price .amount{ font-family: var(--display); font-stretch: 72%; font-weight: 800; font-size: 4rem; line-height: 1; margin: 1.25rem 0 0.25rem; }
-  .price .amount small{ font-family: var(--body); font-stretch: normal; font-weight: 500; font-size: 1.0625rem; }
-  .price p{ margin: 0 0 0.5rem; }
-  .price .btn{ margin-top: auto; align-self: flex-start; }
-  .price .last{ margin-top: auto; padding-top: 1rem; font-weight: 600; }
-  .online{ margin-top: 1rem; background: var(--tint); border-radius: var(--r-md); padding: 1.75rem; display: grid; grid-template-columns: 1fr auto; gap: 0.5rem 2rem; align-items: center; }
-  .online .amount{ font-family: var(--display); font-stretch: 72%; font-weight: 800; font-size: 2.5rem; line-height: 1; white-space: nowrap; }
-  .online .amount small{ font-family: var(--body); font-stretch: normal; font-weight: 500; font-size: 1.0625rem; }
-  .online p{ margin: 0; }
-  .fine{ margin-top: 1.25rem; color: var(--muted); font-size: 1rem; }
-
-  /* Réservation */
-  .booking{ background: var(--blue); color: #fff; border-radius: var(--r-lg); padding: clamp(1.75rem, 5vw, 4.5rem); display: grid; grid-template-columns: 1.2fr 0.8fr; gap: clamp(1.5rem, 4vw, 4rem); align-items: start; }
-  .slots{ background: var(--paper); color: var(--ink); border-radius: var(--r-md); padding: 2rem; min-height: 14rem; display: grid; place-items: center; text-align: center; }
-  .slots.loaded{ padding: 0; overflow: hidden; }
-  .slots iframe{ display: block; width: 100%; height: 44rem; border: 0; }
-  .slots p{ max-width: 22rem; margin: 0 auto; }
-  .callback{ display: grid; gap: 1rem; }
-  .callback label{ display: grid; gap: 0.3rem; font-weight: 500; }
-  .field{ font: inherit; color: #0F1A33; background: #fff; border: 0; border-radius: 0.75rem; padding: 0.8rem 1rem; width: 100%; }
-  textarea.field{ min-height: 5.5rem; resize: vertical; }
-  .plain{ justify-self: start; font: inherit; font-weight: 600; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.2em; }
-  .booking .tel{ font-family: var(--display); font-stretch: 72%; font-weight: 800; font-size: 2.5rem; line-height: 1; text-decoration: none; display: inline-block; margin: 0.25rem 0 2rem; }
-  .booking .note{ font-size: 1rem; margin: 0.5rem 0 0; }
-
-  /* Questions */
-  .faq details{ max-width: 52rem; }
-  .faq summary{ list-style: none; cursor: pointer; padding: 0.85rem 0; font-weight: 600; font-size: 1.3125rem; line-height: 1.35; display: flex; justify-content: space-between; gap: 1.5rem; }
-  .faq summary::-webkit-details-marker{ display: none; }
-  .faq summary::after{ content: "+"; font-family: var(--display); font-weight: 800; font-size: 1.75rem; line-height: 1; color: var(--accent); }
-  .faq details[open] summary::after{ content: "−"; }
-  .faq details p{ margin: 0; padding: 0 3rem 1.25rem 0; }
-
-  /* Ressources */
-  .free{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem 3rem; }
-  .free a{ text-decoration: none; display: block; }
-  .free h3{ text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.2em; }
-  .free a:hover h3{ color: var(--accent); }
-  .free p{ margin: 0; color: var(--muted); }
-  .ebook{ margin-top: 3rem; }
-  .ebook{ background: var(--tint); border-radius: var(--r-md); padding: 1.75rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 3rem; align-items: center; }
-  .ebook form{ display: grid; gap: 0.9rem; }
-  .ebook label{ display: grid; gap: 0.3rem; font-weight: 500; }
-  .ebook .consent{ display: flex; gap: 0.6rem; align-items: baseline; font-weight: 400; font-size: 1rem; color: var(--muted); }
-  .ebook .consent input{ flex: none; width: 1.1rem; height: 1.1rem; accent-color: var(--blue); }
-  .ebook .field{ background: var(--paper); color: var(--ink); }
-
-  .foot{ margin-top: 5.5rem; padding: 2.5rem 0 7rem; color: var(--muted); font-size: 0.9375rem; display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; justify-content: space-between; }
-  .foot p{ margin: 0; }
-
-  /* Barre de réservation sur téléphone, visible une fois le bouton d'accueil passé */
-  .dock{ display: none; }
-
-  @media (max-width: 62rem){
-    .nav-links, .nav-bar > .theme-btn, .nav-bar > .btn{ display: none; }
-    .menu-open{ display: inline-block; }
-    .hero{ grid-template-columns: 1fr; grid-template-areas: "head" "photo" "body"; grid-template-rows: auto; row-gap: 1.25rem; }
-    .about, .booking, .ebook{ grid-template-columns: 1fr; }
-    .hero-photo img{ aspect-ratio: 4 / 3; }
-    .hero .lead{ margin-top: 0; }
-    .about img{ aspect-ratio: 4 / 3; }
-    .prices, .free{ grid-template-columns: 1fr; }
-    .faq details p{ padding-right: 0; }
-    .price .btn, .price .last{ margin-top: 1.25rem; }
-    .online{ grid-template-columns: 1fr; }
-    .block{ padding-top: 4rem; }
-    .dock{ display: block; position: fixed; left: 0.75rem; right: 0.75rem; bottom: 0.75rem; z-index: 15; transform: translateY(160%); transition: transform 0.25s ease; }
-    .dock.show{ transform: none; }
-    .dock .btn{ width: 100%; box-shadow: 0 0.4rem 1.6rem rgba(0, 0, 0, 0.3); }
-  }
-  @media (max-width: 36rem){
-    .voices{ grid-template-columns: 1fr; gap: 2.25rem; }
-    .hero{ border-radius: var(--r-md); }
-    .booking{ border-radius: var(--r-md); }
-  }
-  @media (prefers-reduced-motion: reduce){ .btn, .dock{ transition: none; } }
-</style>
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
 
@@ -221,11 +21,11 @@
 
 <header class="nav">
   <div class="nav-bar">
-    <a class="brand" href="#">Le Coach <span>Sportif</span></a>
+    <a class="brand" href="./">Le Coach <span>Sportif</span></a>
     <nav class="nav-links" aria-label="Navigation principale">
       <a href="#avis">Avis</a>
       <a href="#tarifs">Tarifs</a>
-      <a href="#coach">Comment ça démarre</a>
+      <a href="#demarrer">Comment démarrer</a>
       <a href="#questions">Questions</a>
       <a href="https://lecoachsportif.fr/blog/">Blog</a>
     </nav>
@@ -243,11 +43,11 @@
 <dialog class="sheet" id="menu" aria-label="Menu">
   <button class="ghost close" type="button" id="menuClose">Fermer</button>
   <nav>
-    <a href="#avis">Avis</a>
-    <a href="#tarifs">Tarifs</a>
-    <a href="#coach">Comment ça démarre</a>
-    <a href="#questions">Questions</a>
-    <a href="https://lecoachsportif.fr/blog/">Blog</a>
+      <a href="#avis">Avis</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#demarrer">Comment démarrer</a>
+      <a href="#questions">Questions</a>
+      <a href="https://lecoachsportif.fr/blog/">Blog</a>
   </nav>
   <div class="sheet-foot">
     <a href="tel:+33688114776">06 88 11 47 76</a>
@@ -265,7 +65,7 @@
 
   <section class="hero">
     <div class="hero-head">
-      <h1><span class="where">Coach sportif à Avignon, en salle ou chez toi</span>Le sport, même si tu n'as <em>jamais aimé ça.</em></h1>
+      <h1><span class="where">Coach sportif à Avignon et alentours</span>Le sport, même si tu n'as <em>jamais aimé ça.</em></h1>
     </div>
     <figure class="hero-photo">
       <img src="images/mickael-julien.jpg" width="700" height="1048" alt="Mickaël Julien, souriant, dans la salle où il entraîne">
@@ -275,7 +75,7 @@
       </blockquote>
     </figure>
     <div class="hero-body">
-      <p class="lead">Je m'appelle Mickaël. La plupart des personnes que j'accompagne ne sont pas sportives. On part de ton niveau, une heure à la fois, et je tiens le cap avec toi.</p>
+      <p class="lead">Je m'appelle Mickaël. La plupart des gens que j'accompagne ne sont pas sportifs. On part de ton niveau, une heure à la fois, en salle ou chez toi.</p>
       <div class="hero-actions">
         <a class="btn" href="#reserver" id="heroBook">Réserver mon bilan offert</a>
         <a href="tel:+33688114776">06 88 11 47 76</a>
@@ -286,7 +86,7 @@
 
   <section class="block" id="avis">
     <h2><span class="stars" aria-hidden="true">★★★★★</span><br>56 avis Google, tous à cinq étoiles.</h2>
-    <p class="lead narrow">Tu te reconnais peut-être dans l'une de ces situations. Chaque avis est lié à sa page Google, pour que tu puisses le vérifier.</p>
+    <p class="lead narrow">Tu te reconnaîtras peut-être dans l'un d'eux. Chaque avis renvoie vers Google, pour que tu puisses vérifier.</p>
     <div class="voices">
       <figure class="voice">
         <h3>Tu n'as jamais aimé le sport</h3>
@@ -304,7 +104,7 @@
         <figcaption>Anaïs Lenoel. <a href="https://www.google.com/maps/contrib/116661755767417119550/place/ChIJQWrjyyGvthIRpLLf7QFSSnQ" rel="noopener">Lire son avis sur Google</a></figcaption>
       </figure>
       <figure class="voice">
-        <h3>Tu t'es laissé déborder</h3>
+        <h3>Tu t'es un peu laissé aller</h3>
         <blockquote>« J'étais submergée et je m'étais laissée aller. Six mois après, j'ai surtout retrouvé une hygiène de vie saine et pérenne. »</blockquote>
         <figcaption>Claire Lenfant Kodia. <a href="https://www.google.com/maps/contrib/113531010833839322515/place/ChIJQWrjyyGvthIRpLLf7QFSSnQ" rel="noopener">Lire son avis sur Google</a></figcaption>
       </figure>
@@ -313,45 +113,92 @@
   </section>
 
   <section class="block" id="tarifs">
-    <h2>Des tarifs clairs.</h2>
-    <div class="prices">
-      <div class="price first">
-        <h3>Bilan et séance d'essai</h3>
-        <p class="amount">Offert</p>
-        <p>Un échange, puis une vraie séance. Tu décides après.</p>
-        <a class="btn" href="#reserver">Réserver mon bilan</a>
-      </div>
-      <div class="price">
-        <h3>Une séance par semaine</h3>
-        <p class="amount">39 € <small>la séance</small></p>
-        <p class="muted">Environ 150 € par mois. En salle ou chez toi.</p>
-        <p class="last"><a href="https://lecoachsportif.fr/coaching-presentiel/">Voir le détail</a></p>
-      </div>
-      <div class="price">
-        <h3>Deux séances par semaine</h3>
-        <p class="amount">36 € <small>la séance</small></p>
-        <p class="muted">Environ 290 € par mois. Le rythme que je conseille pour progresser nettement.</p>
-        <p class="last"><a href="https://lecoachsportif.fr/coaching-presentiel/">Voir le détail</a></p>
-      </div>
-    </div>
-    <div class="online">
+    <h2>Les tarifs</h2>
+    <p class="lead narrow">Le prix couvre tout l'accompagnement, pas seulement l'heure passée ensemble.</p>
+    <div class="free-first">
       <div>
-        <h3>Trop loin d'Avignon ? Coaching en ligne</h3>
-        <p>Un programme sur quatre semaines, un appel vidéo par semaine et un suivi par message. <a href="https://lecoachsportif.fr/coaching-en-ligne/">Voir le détail</a></p>
+        <h3>Le bilan est offert</h3>
+        <p>On discute de ton objectif, puis tu fais une première séance. Tu décides après, sans engagement.</p>
       </div>
-      <p class="amount">99 € <small>par mois</small></p>
+      <a class="btn" href="#reserver">Réserver mon bilan</a>
     </div>
-    <p class="fine">Chaque formule comprend le programme sur mesure, le suivi de progression et les conseils en nutrition. Une séance s'annule sans frais jusqu'à 24 heures avant. Prix nets, TVA non applicable (article 293 B du CGI). <a href="https://lecoachsportif.fr/cgv/">Conditions générales de vente</a></p>
+    <div class="offers">
+      <div class="offer">
+        <h3>Avec moi, à Avignon et alentours</h3>
+        <p>Une heure en tête-à-tête, en salle ou chez toi. Déplacement compris.</p>
+        <div class="rates">
+          <div class="rate"><strong>39 € <small>la séance</small></strong><span>Une séance par semaine<br><span class="muted">environ 150 € par mois</span></span></div>
+          <div class="rate"><strong>36 € <small>la séance</small></strong><span>Deux séances par semaine<br><span class="muted">environ 290 € par mois</span></span></div>
+        </div>
+        <ul class="ticks">
+          <li>Un programme construit pour toi</li>
+          <li>La correction de tes gestes en direct</li>
+          <li>Des repères alimentaires simples, sans régime</li>
+          <li>Le suivi de ta progression</li>
+        </ul>
+        <details class="more">
+          <summary>Tout le détail</summary>
+          <h4>C'est fait pour toi si</h4>
+          <ul>
+            <li>tu débutes ou tu reprends après une longue pause ;</li>
+            <li>tu veux que quelqu'un corrige tes gestes ;</li>
+            <li>tu sais que sans rendez-vous, tu n'iras pas.</li>
+          </ul>
+          <h4>Moins adapté si</h4>
+          <p>Tes horaires changent toutes les semaines ou tu te déplaces souvent. Le coaching en ligne te laissera plus de liberté, pour un budget moindre.</p>
+          <h4>Entre les séances</h4>
+          <p>Tu retrouves ton programme dans une application : exercices, séries, répétitions. Je vois ce que tu fais de mon côté.</p>
+          <h4>Paiement et annulation</h4>
+          <p>Par virement, chèque ou espèces, selon un calendrier qu'on fixe au bilan. Une séance se reporte sans frais jusqu'à 24 heures avant.</p>
+        </details>
+      </div>
+      <div class="offer">
+        <h3>En ligne, où que tu sois</h3>
+        <p>Pour ceux qui habitent loin ou dont les horaires changent tout le temps.</p>
+        <div class="rates">
+          <div class="rate"><strong>99 € <small>pour 4 semaines</small></strong><span>Sans abonnement<br><span class="muted">chaque période se règle séparément</span></span></div>
+        </div>
+        <ul class="ticks">
+          <li>Un programme sur 4 semaines, selon ton matériel</li>
+          <li>Un appel vidéo chaque semaine</li>
+          <li>Mes réponses par message</li>
+          <li>Des repères alimentaires simples, sans régime</li>
+          <li>Un bilan à la fin</li>
+        </ul>
+        <details class="more">
+          <summary>Tout le détail</summary>
+          <h4>C'est fait pour toi si</h4>
+          <ul>
+            <li>tu habites loin d'Avignon ;</li>
+            <li>tes horaires changent d'une semaine à l'autre ;</li>
+            <li>tu t'entraînes déjà seul mais tu stagnes.</li>
+          </ul>
+          <h4>Moins adapté si</h4>
+          <p>Tu débutes complètement. Quelques séances avec moi valent mieux : rien ne remplace un œil extérieur pour apprendre les bons gestes. Si c'est ton cas, je te le dirai franchement.</p>
+          <h4>Comment ça se passe</h4>
+          <ul>
+            <li>Jour 1 : on fait connaissance et je construis ton programme.</li>
+            <li>Semaines 1 à 3 : tes séances t'attendent dans l'application, tu me poses tes questions par message.</li>
+            <li>Chaque fin de semaine : un appel de 20 à 30 minutes sur WhatsApp ou FaceTime.</li>
+            <li>Semaine 4 : on mesure les progrès et on décide de la suite.</li>
+          </ul>
+          <h4>Paiement</h4>
+          <p>En ligne par PayPal ou carte bancaire. Je te contacte sous 24 heures après ton paiement. En payant, tu acceptes les <a href="cgv/">conditions générales de vente</a>.</p>
+          <a class="btn" href="https://www.paypal.com/ncp/payment/DQ3FPC8XZ4YDE" rel="noopener">Payer mes 4 premières semaines</a>
+        </details>
+      </div>
+    </div>
+    <p class="fine">Prix nets, TVA non applicable (article 293 B du CGI).</p>
   </section>
 
-  <section class="block about" id="coach">
+  <section class="block about" id="demarrer">
     <div>
       <h2>Pas besoin d'être en forme pour commencer.</h2>
-      <p class="lead">Certaines personnes n'ont rien pratiqué depuis dix ou quinze ans. Pas à l'aise en salle ? Les séances se font aussi chez toi.</p>
+      <p class="lead">Certains n'ont rien fait depuis dix ou quinze ans. D'autres ont essayé seuls et ont lâché au bout de quelques semaines. C'est le cas de la plupart de mes clients.</p>
       <ol class="steps">
-        <li><h3>Le bilan, offert</h3><p>On échange sur ton objectif, ton niveau et tes disponibilités.</p></li>
-        <li><h3>Une première séance</h3><p>Tu découvres une séance adaptée à ton profil, en salle ou chez toi.</p></li>
-        <li><h3>Le suivi</h3><p>On fixe le rythme. Chaque séance est notée : exercices, charges, ressenti.</p></li>
+        <li><h3>Le bilan, offert</h3><p>On discute : ton objectif, ton passé sportif, tes douleurs éventuelles, tes disponibilités. Puis une première séance pour voir où tu en es.</p></li>
+        <li><h3>Ton programme</h3><p>Je le construis à partir du bilan, selon le matériel disponible : en salle, chez toi ou dehors.</p></li>
+        <li><h3>Les séances</h3><p>Une ou deux fois par semaine, à heure fixe. J'ajuste les exercices et les charges d'une séance à l'autre.</p></li>
       </ol>
     </div>
     <figure>
@@ -367,57 +214,65 @@
         <div class="slots" id="slots">
           <p>L'agenda se charge. S'il ne s'affiche pas, <a href="https://calendly.com/personaltrainermycoachmickael/bilan-forme-offert" rel="noopener">ouvre-le dans un nouvel onglet</a>.</p>
         </div>
-        <p class="note">Choisis un créneau, c'est confirmé tout de suite, sans engagement.</p>
+        <p class="note">Choisis un créneau, c'est confirmé tout de suite.</p>
       </div>
       <div>
         <h3>Ou appelle-moi</h3>
         <a class="tel" href="tel:+33688114776">06 88 11 47 76</a>
-        <h3>Ou je te rappelle</h3>
+        <h3>Ou laisse-moi ton numéro</h3>
         <form class="callback" id="callback">
           <label>Prénom <input class="field" type="text" name="firstname" autocomplete="given-name" required></label>
           <label>Téléphone <input class="field" type="tel" name="phone" autocomplete="tel" required></label>
           <label>Ton objectif, en une phrase <textarea class="field" name="message"></textarea></label>
-          <button class="plain" type="submit">Envoyer, je rappelle sous 24 h</button>
+          <button class="btn quiet" type="submit">Envoyer</button>
         </form>
-        <p class="note">Tes coordonnées servent uniquement à te répondre. <a href="https://lecoachsportif.fr/mentions-legales/#confidentialite">Confidentialité</a></p>
+        <p class="note">Je te rappelle sous 24 heures. Tes coordonnées ne servent qu'à ça. <a href="mentions-legales/#confidentialite">Confidentialité</a></p>
       </div>
     </section>
   </div>
 
   <section class="block faq" id="questions">
-    <h2>Avant de démarrer.</h2>
+    <h2>Questions fréquentes</h2>
     <details open>
-      <summary>Je n'ai jamais fait de sport, est-ce un problème ?</summary>
-      <p>Pas du tout, c'est même le point de départ le plus fréquent. On commence progressivement, la technique et les bons appuis avant l'intensité.</p>
+      <summary>Je n'ai jamais fait de sport, c'est un problème ?</summary>
+      <p>Non, c'est le cas de la plupart des gens qui viennent me voir. On commence doucement : les bons gestes d'abord, l'intensité ensuite.</p>
     </details>
     <details>
-      <summary>J'ai des douleurs ou une blessure, puis-je être suivi ?</summary>
-      <p>Dans la majorité des cas oui, à condition d'adapter le travail. On fait le point au bilan. En cas de blessure récente ou de pathologie en cours, un avis médical préalable reste indispensable, et je travaille volontiers en complément de ton kiné ou de ton médecin.</p>
+      <summary>J'ai mal au dos ou une ancienne blessure, c'est possible ?</summary>
+      <p>Souvent oui. Ma première question sera de savoir si tu as consulté. Avec un avis médical favorable, on adapte les mouvements et on renforce progressivement. Je travaille volontiers avec ton kiné ou ton médecin.</p>
     </details>
     <details>
-      <summary>Où se déroulent les séances ?</summary>
-      <p>En salle de sport ou à ton domicile : Avignon, Le Pontet, Villeneuve-lès-Avignon, Sorgues, Vedène, Entraigues-sur-la-Sorgue, Morières-lès-Avignon et Carpentras. Plus loin, je propose le coaching en ligne.</p>
+      <summary>Où ont lieu les séances ?</summary>
+      <p>En salle ou chez toi : Avignon, Le Pontet, Villeneuve-lès-Avignon, Sorgues, Vedène, Entraigues-sur-la-Sorgue, Morières-lès-Avignon et Carpentras. Le déplacement est compris. Si tu habites plus loin, il y a le coaching en ligne.</p>
     </details>
     <details>
-      <summary>Combien de séances par semaine faut-il ?</summary>
-      <p>Deux suffisent pour progresser nettement. Deux séances tenues pendant six mois valent bien plus qu'un mois de forcing suivi d'un abandon.</p>
+      <summary>Faut-il du matériel chez soi ?</summary>
+      <p>Non. On peut travailler au poids du corps ou avec quelques accessoires simples.</p>
+    </details>
+    <details>
+      <summary>Combien de séances par semaine ?</summary>
+      <p>Une ou deux avec moi, et des séances en autonomie avec ton programme. Ce qui compte, c'est la régularité : deux séances tenues six mois valent bien plus qu'un mois intensif suivi d'un abandon.</p>
+    </details>
+    <details>
+      <summary>Faut-il s'engager sur une durée ?</summary>
+      <p>Non. Au bilan, on estime ensemble le temps qu'il faut pour atteindre ton objectif. Cette durée sert de repère, il n'y a pas de contrat imposé.</p>
+    </details>
+    <details>
+      <summary>Et si je dois annuler une séance ?</summary>
+      <p>Préviens-moi au moins 24 heures avant et on la reporte. Passé ce délai, la séance est due : le créneau t'était réservé.</p>
     </details>
     <details>
       <summary>Peut-on venir à deux ?</summary>
       <p>Oui, quand les niveaux et les objectifs sont proches. Parle-m'en au bilan.</p>
     </details>
-    <details>
-      <summary>Comment ma progression est-elle suivie ?</summary>
-      <p>Chaque séance est consignée : exercices, charges, ressenti et éventuelles gênes. On fait régulièrement le point sur tes mesures pour ajuster le programme.</p>
-    </details>
   </section>
 
   <section class="block">
-    <h2>Gratuit, entre deux séances.</h2>
+    <h2>Des outils gratuits</h2>
     <div class="free">
-      <a href="https://lecoachsportif.fr/chrono/"><h3>Chrono d'entraînement</h3><p>Tabata, EMOM, AMRAP et circuits, sans publicité.</p></a>
-      <a href="https://lecoachsportif.fr/calculateur/"><h3>Calculateur de calories</h3><p>Ton métabolisme de base et tes besoins. Rien n'est envoyé.</p></a>
-      <a href="https://lecoachsportif.fr/blog/"><h3>Le blog</h3><p>Seize articles sur l'entraînement, la nutrition et la motivation.</p></a>
+      <a href="https://lecoachsportif.fr/chrono/"><h3>Chrono d'entraînement</h3><p>Tabata, EMOM, AMRAP et circuits. Sans publicité.</p></a>
+      <a href="https://lecoachsportif.fr/calculateur/"><h3>Calculateur de calories</h3><p>Tes besoins selon ton activité. Rien n'est envoyé.</p></a>
+      <a href="https://lecoachsportif.fr/blog/"><h3>Le blog</h3><p>Seize articles sur l'entraînement, l'alimentation et la motivation.</p></a>
     </div>
     <div class="ebook">
       <div>
@@ -426,99 +281,32 @@
       </div>
       <form id="ebook">
         <label>Ton e-mail <input class="field" type="email" name="EMAIL" autocomplete="email" required></label>
-        <label class="consent"><input type="checkbox" name="OPT_IN" required> <span>J'accepte de recevoir l'e-book et quelques conseils par e-mail. Désinscription à tout moment.</span></label>
-        <button class="plain" type="submit">Recevoir les recettes</button>
+        <label class="consent"><input type="checkbox" name="OPT_IN" required> <span>J'accepte de recevoir les recettes et quelques conseils par e-mail. Désinscription à tout moment.</span></label>
+        <button class="btn" type="submit">Recevoir les recettes</button>
       </form>
     </div>
   </section>
 
   <footer class="foot">
-    <p>Mickaël Julien EI, Le Coach Sportif. 44 avenue de la Synagogue, 84000 Avignon. SIRET 818 833 873 00024.</p>
-    <p><a href="mailto:contact@lecoachsportif.fr">contact@lecoachsportif.fr</a> &nbsp; <a href="https://lecoachsportif.fr/mentions-legales/">Mentions légales et confidentialité</a> &nbsp; <a href="https://lecoachsportif.fr/cgv/">CGV</a></p>
+    <div>
+      <h3>Le Coach Sportif</h3>
+      <p>Mickaël Julien, coach sportif diplômé d'État</p>
+      <p><a href="tel:+33688114776">06 88 11 47 76</a></p>
+      <p><a href="mailto:contact@lecoachsportif.fr">contact@lecoachsportif.fr</a></p>
+    </div>
+    <div>
+      <h3>Avignon et alentours</h3>
+      <p>En salle ou chez toi : Avignon, Le Pontet, Villeneuve-lès-Avignon, Sorgues, Vedène, Entraigues-sur-la-Sorgue, Morières-lès-Avignon et Carpentras.</p>
+    </div>
+    <div>
+      <h3>Informations</h3>
+      <p><a href="mentions-legales/">Mentions légales et confidentialité</a></p>
+      <p><a href="cgv/">Conditions générales de vente</a></p>
+      <p>Mickaël Julien EI, SIRET 818 833 873 00024</p>
+    </div>
   </footer>
 </main>
-
 <div class="dock" id="dock"><a class="btn" href="#reserver">Réserver mon bilan offert</a></div>
-
-<script>
-(function(){
-  var root = document.documentElement;
-  var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
-  var order = ['system', 'light', 'dark'];
-  var names = { system: 'Thème auto', light: 'Thème clair', dark: 'Thème sombre' };
-  var cyclers = document.querySelectorAll('[data-theme-cycle]');
-
-  function current(){ return root.dataset.theme || 'system'; }
-  function isDark(){ return current() === 'dark' || (current() === 'system' && darkQuery.matches); }
-  function paint(){
-    cyclers.forEach(function(b){
-      b.setAttribute('aria-label', names[current()] + ', changer');
-      b.title = names[current()];
-      b.querySelector('.theme-label').textContent = names[current()];
-      b.querySelectorAll('svg').forEach(function(i){ i.toggleAttribute('hidden', i.dataset.icon !== current()); });
-    });
-  }
-  cyclers.forEach(function(b){
-    b.addEventListener('click', function(){
-      var next = order[(order.indexOf(current()) + 1) % order.length];
-      if (next === 'system') { delete root.dataset.theme; } else { root.dataset.theme = next; }
-      try {
-        if (next === 'system') { localStorage.removeItem('theme'); } else { localStorage.setItem('theme', next); }
-      } catch (e) {}
-      paint();
-    });
-  });
-  paint();
-
-  /* Menu plein écran */
-  var menu = document.getElementById('menu');
-  document.getElementById('menuOpen').addEventListener('click', function(){ menu.showModal(); });
-  document.getElementById('menuClose').addEventListener('click', function(){ menu.close(); });
-  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.close(); }); });
-
-  /* Lien du menu correspondant à la section affichée */
-  var links = document.querySelectorAll('.nav-links a[href^="#"]');
-  var spy = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if (!entry.isIntersecting) return;
-      links.forEach(function(l){ l.setAttribute('aria-current', l.hash === '#' + entry.target.id ? 'true' : 'false'); });
-    });
-  }, { rootMargin: '-35% 0px -60% 0px' });
-  links.forEach(function(l){ var s = document.querySelector(l.hash); if (s) spy.observe(s); });
-
-  /* Barre de réservation : visible quand ni le bouton d'accueil ni l'agenda ne sont à l'écran */
-  var dock = document.getElementById('dock');
-  var seen = new Set();
-  var dockWatch = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){ if (entry.isIntersecting) { seen.add(entry.target); } else { seen.delete(entry.target); } });
-    dock.classList.toggle('show', seen.size === 0);
-  });
-  dockWatch.observe(document.getElementById('heroBook'));
-  dockWatch.observe(document.getElementById('reserver'));
-
-  /* L'agenda Calendly se charge dans la page, à l'approche de la section de réservation. */
-  var slots = document.getElementById('slots');
-  var slotWatch = new IntersectionObserver(function(entries){
-    if (!entries[0].isIntersecting) return;
-    slotWatch.disconnect();
-    var colors = isDark()
-      ? 'background_color=0A1024&text_color=EEF1F8&primary_color=8FB0FF'
-      : 'background_color=FFFFFF&text_color=0F1A33&primary_color=1147B4';
-    var frame = document.createElement('iframe');
-    frame.title = 'Choisir un créneau pour le bilan offert';
-    frame.src = 'https://calendly.com/personaltrainermycoachmickael/bilan-forme-offert'
-      + '?embed_type=Inline&embed_domain=' + encodeURIComponent(location.hostname)
-      + '&hide_gdpr_banner=1&hide_event_type_details=1&' + colors;
-    slots.classList.add('loaded');
-    slots.replaceChildren(frame);
-  }, { rootMargin: '600px' });
-  slotWatch.observe(slots);
-
-  /* Maquette : les formulaires ne sont pas branchés. */
-  document.querySelectorAll('form').forEach(function(f){
-    f.addEventListener('submit', function(e){ e.preventDefault(); });
-  });
-})();
-</script>
+<script src="site.js"></script>
 </body>
 </html>

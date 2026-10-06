@@ -1,0 +1,81 @@
+(function(){
+  var root = document.documentElement;
+  var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  var order = ['system', 'light', 'dark'];
+  var names = { system: 'Thème auto', light: 'Thème clair', dark: 'Thème sombre' };
+  var cyclers = document.querySelectorAll('[data-theme-cycle]');
+
+  function current(){ return root.dataset.theme || 'system'; }
+  function isDark(){ return current() === 'dark' || (current() === 'system' && darkQuery.matches); }
+  function paint(){
+    cyclers.forEach(function(b){
+      b.setAttribute('aria-label', names[current()] + ', changer');
+      b.title = names[current()];
+      b.querySelector('.theme-label').textContent = names[current()];
+      b.querySelectorAll('svg').forEach(function(i){ i.toggleAttribute('hidden', i.dataset.icon !== current()); });
+    });
+  }
+  cyclers.forEach(function(b){
+    b.addEventListener('click', function(){
+      var next = order[(order.indexOf(current()) + 1) % order.length];
+      if (next === 'system') { delete root.dataset.theme; } else { root.dataset.theme = next; }
+      try {
+        if (next === 'system') { localStorage.removeItem('theme'); } else { localStorage.setItem('theme', next); }
+      } catch (e) {}
+      paint();
+    });
+  });
+  paint();
+
+  /* Menu plein écran */
+  var menu = document.getElementById('menu');
+  document.getElementById('menuOpen').addEventListener('click', function(){ menu.showModal(); });
+  document.getElementById('menuClose').addEventListener('click', function(){ menu.close(); });
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.close(); }); });
+
+  /* Ce qui suit ne concerne que la page d'accueil. */
+  var slots = document.getElementById('slots');
+  if (!slots) return;
+
+  /* Lien du menu correspondant à la section affichée */
+  var links = document.querySelectorAll('.nav-links a[href^="#"]');
+  var spy = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (!entry.isIntersecting) return;
+      links.forEach(function(l){ l.setAttribute('aria-current', l.hash === '#' + entry.target.id ? 'true' : 'false'); });
+    });
+  }, { rootMargin: '-35% 0px -60% 0px' });
+  links.forEach(function(l){ var s = document.querySelector(l.hash); if (s) spy.observe(s); });
+
+  /* Barre de réservation : visible quand ni le bouton d'accueil ni l'agenda ne sont à l'écran */
+  var dock = document.getElementById('dock');
+  var seen = new Set();
+  var dockWatch = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){ if (entry.isIntersecting) { seen.add(entry.target); } else { seen.delete(entry.target); } });
+    dock.classList.toggle('show', seen.size === 0);
+  });
+  dockWatch.observe(document.getElementById('heroBook'));
+  dockWatch.observe(document.getElementById('reserver'));
+
+  /* L'agenda Calendly se charge dans la page, à l'approche de la section de réservation. */
+  var slotWatch = new IntersectionObserver(function(entries){
+    if (!entries[0].isIntersecting) return;
+    slotWatch.disconnect();
+    var colors = isDark()
+      ? 'background_color=0A1024&text_color=EEF1F8&primary_color=8FB0FF'
+      : 'background_color=FFFFFF&text_color=0F1A33&primary_color=1147B4';
+    var frame = document.createElement('iframe');
+    frame.title = 'Choisir un créneau pour le bilan offert';
+    frame.src = 'https://calendly.com/personaltrainermycoachmickael/bilan-forme-offert'
+      + '?embed_type=Inline&embed_domain=' + encodeURIComponent(location.hostname)
+      + '&hide_gdpr_banner=1&hide_event_type_details=1&' + colors;
+    slots.classList.add('loaded');
+    slots.replaceChildren(frame);
+  }, { rootMargin: '600px' });
+  slotWatch.observe(slots);
+
+  /* Maquette : les formulaires ne sont pas branchés. */
+  document.querySelectorAll('form').forEach(function(f){
+    f.addEventListener('submit', function(e){ e.preventDefault(); });
+  });
+})();
